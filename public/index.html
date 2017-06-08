@@ -1,0 +1,30 @@
+<html ng-app="app">
+	<head>
+		<title>Skylark Drones</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://unpkg.com/leaflet@1.0.3/dist/leaflet.css" />
+		<script src="https://unpkg.com/leaflet@1.0.3/dist/leaflet.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+		<script src="app.js"></script>
+        <script src="map.controller.js"></script>
+
+		<style>
+			#mapid {
+				width: 100%;
+				height: 500px;
+			}
+		</style>
+	</head>
+	<body ng-controller="mapController as vm">
+		<div class="container-fluid">
+			<h2>{{vm.title}}</h2>			
+				<div id="mapid"></div>
+				<div ng-if="vm.details != ''">
+					<h2>{{vm.details.city_name}}</h2>
+					<p class="lead">{{vm.details.description}}</p>
+					<p><b>Area:</b> {{vm.details.area}} km<sup>2</sup></p>
+					<p><b>Website:</b> <a ng-href="{{vm.details.website}}">{{vm.details.website}}</a></p>
+				</div>				
+		</div>
+	</body>
+</html>
